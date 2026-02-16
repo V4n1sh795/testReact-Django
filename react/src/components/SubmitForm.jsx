@@ -20,7 +20,11 @@ function SubmitForm() {
     setResult(null);
 
     try {
-      const data = await submitData({ title: value, body: value, userId: 1 });
+      const data = await submitData({
+    name: value,
+    price: 1000,
+    description: 'dadsada'
+  });
       setResult(data);
       setValue('');
     } catch (err) {
