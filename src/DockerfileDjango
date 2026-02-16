@@ -1,0 +1,17 @@
+FROM python:3.10.13-slim
+
+# Установка ВСЕХ необходимых системных зависимостей
+RUN apt-get update && \
+    apt-get install -y curl
+
+WORKDIR /app
+
+# Создание директорий для статики и медиа
+
+# Копирование зависимостей и установка
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Копирование исходного кода
+COPY . .
